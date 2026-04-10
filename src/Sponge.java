@@ -33,8 +33,31 @@ public class Sponge {
 
   // Implement your solution here!
   public static String spongeCase(String sentence) {
-    return null;
+    // This is going to help convert the string into an array of characters,
+    char[] letters = sentence.toCharArray();
+    int wordCount = 0;
+    // Now it is time to build my loop
+    for (int i = 0; i < letters.length; i++) {
+      // This starts and checks every character in the array
+      char current = letters[i];
+      // We will be checking if the character is a space, as required by the above question in prompt
+      if (current == ' ') {
+        wordCount = 0;
+      // If it is not a space, this condition will check every character in an even position and set it to lowercase
+      } else {
+        if (wordCount % 2 == 0) {
+          letters[i] = Character.toLowerCase(current);
+          // This one will set all the other letters(odd) to uppercase
+        } else {
+          letters[i] = Character.toUpperCase(current);
+        } // This allows us to iterate through each character one by one.
+        wordCount++;
+      }
+    }
+    // Finally we come to our return statement, which brings the array back into a string.
+    return new String(letters);
   }
+
 
 
   // Method to help with testing, you do not need to read this.
