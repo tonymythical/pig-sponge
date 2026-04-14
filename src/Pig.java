@@ -26,7 +26,21 @@ public class Pig {
 
     // Implement your solution here!
     public static String pigLatin(String sentence) {
-        return null;
+        String[] words = sentence.split(" ");
+        String finalString = "";
+
+        for(String word : words) {
+            char vowel = word.charAt(0);
+            if ( vowel == 'a' || vowel == 'e' || vowel == 'i' || vowel == 'o' || vowel == 'u' ) {
+                finalString += word + " ";
+            } else {
+                word = word + vowel + "ay";
+                word = word.substring(1);
+                finalString += word + " ";
+            }
+        } 
+        finalString = finalString.substring(0, finalString.length()-1);
+        return finalString;
     }
 
 
